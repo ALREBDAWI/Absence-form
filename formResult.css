@@ -1,0 +1,71 @@
+  body {
+    font-family: Arial, sans-serif;
+    background: #f5f6fa;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+  }
+
+  .form-card {
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .form-card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2f3640;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #273c75;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #dcdde1;
+    font-size: 1em;
+    background: #f1f2f6;
+    color: #2f3640;
+  }
+
+  .form-group input[readonly],
+  .form-group textarea[readonly] {
+    cursor: not-allowed;
+  }
+
+  .abscent-reasons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .abscent-reason {
+    background: #e1b12c;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.9em;
+  }
+
+  #oneday_block{
+    display: none;
+  }
+
+  #manydays_block{
+    display: none;
+  }

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./formResult.css">
+    <title>Document</title>
+</head>
+<body>
+    
+
+ <div class="form-card" id="result_card">
+  <h2>Formulaire</h2>
+
+  <div class="form-group">
+    <label>Prenom</label>
+    <input type="text" id="name" readonly>
+  </div>
+
+  <div class="form-group">
+    <label>Nom</label>
+    <input type="text" id="lastname" readonly>
+  </div>
+
+  <div class="form-group">
+    <label>Formation</label>
+    <input type="text" id="formation" readonly>
+  </div>
+
+  <div class="form-group">
+    <label>les raison d'abscence</label>
+    <div class="abscent-reasons" id="abscentReason"></div>
+  </div>
+
+  
+  <div id="manydays_block">
+    <div class="form-group">
+      <label>Date de debut</label>
+      <input type="text" id="start_date" readonly>
+    </div>
+
+    <div class="form-group">
+      <label>Date de fin</label>
+      <input type="text" id="end_date" readonly>
+    </div>
+  </div>
+  
+  <div id="oneday_block">
+      <div class="form-group">
+        <label>Date</label>
+        <input type="text" id="day_date" readonly>
+      </div>
+
+      <div class="form-group">
+        <label>Heur de debut</label>
+        <input type="text" id="start_hour" readonly>
+      </div>
+
+      <div class="form-group">
+        <label>Heur de fin</label>
+        <input type="text" id="end_hour" readonly>
+      </div>
+  </div>
+</div>
+
+
+
+    <script src="./js/formResult.js">
+        
+    </script>
+</body>
+</html>
