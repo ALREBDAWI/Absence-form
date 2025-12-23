@@ -6,37 +6,17 @@ export function submitForm() {
 
     form.addEventListener("submit", e => {
         e.preventDefault();
-
+    
         const selected = [];
         const Regex = /^[a-zA-Z]+$/;
         const errorId = "error_message";
+        let errorMsg = document.getElementById(errorId);
 
         const verifyName = isNameValid("name", Regex, errorId);
         const verifyLastName = isNameValid("lastname", Regex, errorId);
         const verifyFormation = isNameValid("formation", Regex, errorId);
 
-        if (!verifyName || !verifyLastName || !verifyFormation) {
-            return;
-        }
-
         let checkboxes = document.querySelectorAll(".motif_checkbox");
-        checkboxes.forEach(cb => {
-            if (cb.checked) {
-                selected.push(cb.value);
-            }
-        });
-
-        if (selected.length === 0) {
-            window.alert("you must choose on motif at");
-            return;
-        }
-
-        const data = {
-            name: document.getElementById("name").value,
-            lastname: document.getElementById("lastname").value,
-            formation: document.getElementById("formation").value,
-            abscentReason: selected,
-        };
 
         const oneDayDateInput = document.getElementById("oneday_abscent_date");
         const oneDayStartHourInput = document.getElementById("oneday_abscent_start_hour");
@@ -48,14 +28,51 @@ export function submitForm() {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
 
+        let signaturStudent = document.getElementById("signature_student");
+
+        if (!verifyName || !verifyLastName || !verifyFormation) {
+            return;
+        }
+
+        
+        checkboxes.forEach(cb => {
+            if (cb.checked) {
+                selected.push(cb.value);
+            }
+        });
+
+        if (selected.length === 0) {
+            errorMsg.textContent = "il faut choisir au moins un motif";
+            return;
+        }
+
+        const data = {
+            name: document.getElementById("name").value,
+            lastname: document.getElementById("lastname").value,
+            formation: document.getElementById("formation").value,
+            abscentReason: selected,
+            
+        };
+
         if (oneDayAbscent) {
+
+            if(!oneDayDateInput.value){
+                errorMsg.textContent = "il faut saisire une date!";
+                return; 
+            }
+
+            if(!oneDayStartHourInput.value || !oneDayEndHourInput.value){
+                errorMsg.textContent = "il faut precisier une heure";
+                return;
+            }
+
             if (new Date(oneDayDateInput.value) < today) {
-                alert("date cant be in the past");
+                errorMsg.textContent = "la date ne peut pas etre dans le passé"
                 return;
             }
 
             if (oneDayEndHourInput.value <= oneDayStartHourInput.value) {
-                alert("end hour must be after start hour!");
+                errorMsg.textContent = "L'heure de fin ne peut pas etre antérieure à l'heure de début";
                 return;
             }
 
@@ -66,8 +83,14 @@ export function submitForm() {
             };
 
         } else {
-            if (new Date(manyDaysEndDateInput.value) <= new Date(manyDaysStartDateInput.value)) {
-                alert("end date must be after start date!");
+
+            if(!manyDaysStartDateInput.value || !manyDaysEndDateInput.value){
+                errorMsg.textContent = "il faut saisire des dates!";
+                return;
+            }
+
+            if (new Date(manyDaysEndDateInput.value) <= new Date(manyDaysStartDateInput.value)) { 
+                errorMsg.textContent = "la date de fin ne peut pas etre antérieure à la date de début";
                 return;
             }
 
@@ -75,6 +98,10 @@ export function submitForm() {
                 startDate: manyDaysStartDateInput.value,
                 endDate: manyDaysEndDateInput.value
             };
+        }
+
+        if(signaturStudent.value.trim()){
+            data.signature = signaturStudent.value;
         }
 
         sessionStorage.setItem("formData", JSON.stringify(data));

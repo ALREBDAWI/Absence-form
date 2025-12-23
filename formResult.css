@@ -1,3 +1,5 @@
+  
+
   body {
     font-family: Arial, sans-serif;
     background: #f5f6fa;
@@ -7,13 +9,29 @@
   }
 
   .form-card {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
     background: #fff;
-    padding: 25px 30px;
+    padding: 25px;
     border-radius: 12px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     width: 100%;
     max-width: 500px;
+
+      div{
+        width: 100%;
+        margin-right: 20px;
+      }
+
+      input{
+        width: 100%;
+      }
   }
+
+  
 
   .form-card h2 {
     text-align: center;
@@ -23,24 +41,27 @@
 
   .form-group {
     margin-bottom: 15px;
+    
   }
 
-  .form-group label {
+  .form-group label, #signature_result label {
     display: block;
     font-weight: bold;
     margin-bottom: 6px;
     color: #273c75;
+    
   }
 
   .form-group input,
-  .form-group textarea {
-    width: 100%;
+  .form-group textarea, #signature_result input {
+    
     padding: 8px 10px;
     border-radius: 6px;
     border: 1px solid #dcdde1;
     font-size: 1em;
     background: #f1f2f6;
     color: #2f3640;
+
   }
 
   .form-group input[readonly],
@@ -48,18 +69,23 @@
     cursor: not-allowed;
   }
 
-  .abscent-reasons {
+  #abscentReason {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
+    width: fit-content;
     gap: 6px;
+    
+    
   }
 
-  .abscent-reason {
-    background: #e1b12c;
+  #abscentReason div {
+    background: #3f800a;
     color: #fff;
     padding: 4px 8px;
     border-radius: 6px;
     font-size: 0.9em;
+    width: fit-content;
   }
 
   #oneday_block{
@@ -69,3 +95,39 @@
   #manydays_block{
     display: none;
   }
+
+  
+  button {
+    margin: 15px;
+    background-color: rgb(228, 188, 11);
+    color: #3b2f00;
+    box-shadow: 0 5px 10px rgba(228, 188, 11, 0.35);
+    min-height: 50px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+    
+        
+}
+
+  @media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #result_card, #result_card * {
+        visibility: visible; 
+    }
+
+    #print-btn{
+        visibility: hidden; 
+    }
+
+   
+}
