@@ -1,10 +1,12 @@
+//function to check if input entry is valid in real time
 export function inputCheck(){
     const name = document.getElementById("name");
     const lastname = document.getElementById("lastname");
     const formation = document.getElementById("formation");
-    let errorMessage = document.getElementById("error_message")
+    const errorMessage = document.getElementById("error_message")
     const Regex = /^[a-zA-Z]+$/;
 
+    //make sure that name entry is not numbers
     name.addEventListener("input", ()=>{
         if(Regex.test(name.value)){
             errorMessage.textContent = "";
@@ -36,9 +38,10 @@ export function inputCheck(){
     })
 }
 
+//function with params to check any name entry using element's html ID and a chosen regex, in case of error it displays a message
 export function isNameValid(elementId,regex,errorId){
-    let myelement = document.getElementById(elementId);
-    let myerror = document.getElementById(errorId);
+    const myelement = document.getElementById(elementId);
+    const myerror = document.getElementById(errorId);
    
     if(regex.test(myelement.value)){
         myelement.style.borderColor = "green";

@@ -1,18 +1,27 @@
-  
+/* =========================================================
+   Global Styles
+   ========================================================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box; 
+}
 
-  body {
+body {
     font-family: Arial, sans-serif;
     background: #f5f6fa;
     display: flex;
     justify-content: center;
     padding: 30px;
-  }
+    margin: 0;
+}
 
-  .form-card {
-    box-sizing: border-box;
+/* =========================================================
+   Form Card
+   ========================================================= */
+.form-card {
     display: flex;
     flex-direction: column;
-    
     align-items: center;
     background: #fff;
     padding: 25px;
@@ -20,85 +29,78 @@
     box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     width: 100%;
     max-width: 500px;
+}
 
-      div{
-        width: 100%;
-        margin-right: 20px;
-      }
-
-      input{
-        width: 100%;
-      }
-  }
-
-  
-
-  .form-card h2 {
+.form-card h2 {
     text-align: center;
     margin-bottom: 20px;
     color: #2f3640;
-  }
+}
 
-  .form-group {
+.form-group {
     margin-bottom: 15px;
-    
-  }
+    width: 100%;
+}
 
-  .form-group label, #signature_result label {
+.form-group label,
+#signature_result label {
     display: block;
     font-weight: bold;
     margin-bottom: 6px;
     color: #273c75;
-    
-  }
+}
 
-  .form-group input,
-  .form-group textarea, #signature_result input {
-    
+.form-group input,
+.form-group textarea,
+#signature_result input {
+    width: 100%;
     padding: 8px 10px;
     border-radius: 6px;
     border: 1px solid #dcdde1;
     font-size: 1em;
     background: #f1f2f6;
     color: #2f3640;
+}
 
-  }
-
-  .form-group input[readonly],
-  .form-group textarea[readonly] {
+.form-group input[readonly],
+.form-group textarea[readonly] {
     cursor: not-allowed;
-  }
+}
 
-  #abscentReason {
+/* =========================================================
+   Abscent Reason
+   ========================================================= */
+#abscentReason {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: fit-content;
     gap: 6px;
-    
-    
-  }
+    width: 100%;
+}
 
-  #abscentReason div {
+#abscentReason div {
     background: #3f800a;
     color: #fff;
     padding: 4px 8px;
     border-radius: 6px;
     font-size: 0.9em;
     width: fit-content;
-  }
+}
 
-  #oneday_block{
+/* =========================================================
+   Date Blocks
+   ========================================================= */
+#oneday_block,
+#manydays_block {
     display: none;
-  }
+    width: 100%;
+}
 
-  #manydays_block{
-    display: none;
-  }
-
-  
-  button {
-    margin: 15px;
+/* =========================================================
+   Buttons
+   ========================================================= */
+button {
+    margin: 15px 0;
     background-color: rgb(228, 188, 11);
     color: #3b2f00;
     box-shadow: 0 5px 10px rgba(228, 188, 11, 0.35);
@@ -106,17 +108,41 @@
     padding: 10px 16px;
     border: none;
     border-radius: 8px;
-
     font-size: 15px;
     font-weight: 600;
     letter-spacing: 0.5px;
-
     cursor: pointer;
-    
-        
+    width: 100%; 
+    max-width: 400px; 
 }
 
-  @media print {
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+
+    .form-card {
+        padding: 15px;
+    }
+
+    button {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    #abscentReason div {
+        font-size: 0.85em;
+        padding: 3px 6px;
+    }
+}
+
+/* =========================================================
+   Print Styles
+   ========================================================= */
+@media print {
     body * {
         visibility: hidden;
     }
@@ -125,9 +151,7 @@
         visibility: visible; 
     }
 
-    #print-btn{
+    #print-btn {
         visibility: hidden; 
     }
-
-   
 }

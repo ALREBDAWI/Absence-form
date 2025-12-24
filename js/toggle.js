@@ -1,4 +1,7 @@
-export let oneDayAbscent; //it will be used as boolean to determain wich dates will be submitted (one day abscent case or many days) 
+//var to determain wich dates will be submitted (one day abscence case or many days) 
+export let oneDayAbscent; 
+
+//function to toggle between two types of abscence
 export function toggle(){ 
             
             let oneday = document.getElementById("oneday");

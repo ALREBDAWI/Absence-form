@@ -3,73 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Result page styles -->
     <link rel="stylesheet" href="./formResult.css">
-    <title>Document</title>
+
+    <title>Form Result</title>
 </head>
 <body>
-    
 
- <div class="form-card" id="result_card">
-  <h2>Formulaire</h2>
+    <!-- Main result card -->
+    <div class="form-card" id="result_card">
 
-  <div class="form-group">
-    <label>Prenom</label>
-    <input type="text" id="name" readonly>
-  </div>
+        <!-- Title -->
+        <h2>Formulaire</h2>
 
-  <div class="form-group">
-    <label>Nom</label>
-    <input type="text" id="lastname" readonly>
-  </div>
+        <!-- Personal information -->
+        <div class="form-group">
+            <label>Prenom</label>
+            <input type="text" id="name" readonly>
+        </div>
 
-  <div class="form-group">
-    <label>Formation</label>
-    <input type="text" id="formation" readonly>
-  </div>
+        <div class="form-group">
+            <label>Nom</label>
+            <input type="text" id="lastname" readonly>
+        </div>
 
-  <div class="form-group">
-    <label>les raison d'abscence</label>
-    <div id="abscentReason"></div>
-  </div>
+        <div class="form-group">
+            <label>Formation</label>
+            <input type="text" id="formation" readonly>
+        </div>
 
-  
-  <div id="manydays_block">
-    <div class="form-group">
-      <label>Date de debut</label>
-      <input type="text" id="start_date" readonly>
+        <!-- Absence reasons -->
+        <div class="form-group">
+            <label>Les raisons d'absence</label>
+            <div id="abscentReason"></div>
+        </div>
+
+        <!-- Multiple days absence block -->
+        <div id="manydays_block">
+            <div class="form-group">
+                <label>Date de début</label>
+                <input type="text" id="start_date" readonly>
+            </div>
+
+            <div class="form-group">
+                <label>Date de fin</label>
+                <input type="text" id="end_date" readonly>
+            </div>
+        </div>
+
+        <!-- One day absence block -->
+        <div id="oneday_block">
+            <div class="form-group">
+                <label>Date</label>
+                <input type="text" id="day_date" readonly>
+            </div>
+
+            <div class="form-group">
+                <label>Heure de début</label>
+                <input type="text" id="start_hour" readonly>
+            </div>
+
+            <div class="form-group">
+                <label>Heure de fin</label>
+                <input type="text" id="end_hour" readonly>
+            </div>
+        </div>
+
+        <!-- Signature result -->
+        <div id="signature_result"></div>
+
+        <!-- Print button -->
+        <button id="print-btn">Print</button>
+
     </div>
 
-    <div class="form-group">
-      <label>Date de fin</label>
-      <input type="text" id="end_date" readonly>
-    </div>
-  </div>
-  
-  <div id="oneday_block">
-      <div class="form-group">
-        <label>Date</label>
-        <input type="text" id="day_date" readonly>
-      </div>
+    <!-- Result page logic -->
+    <script src="./js/formResult.js"></script>
 
-      <div class="form-group">
-        <label>Heur de debut</label>
-        <input type="text" id="start_hour" readonly>
-      </div>
-
-      <div class="form-group">
-        <label>Heur de fin</label>
-        <input type="text" id="end_hour" readonly>
-      </div>
-  </div>
-  <div id="signature_result">
-  </div>
-  <button id="print-btn">print</button>
-</div>
-
-
-
-    <script src="./js/formResult.js">
-        
-    </script>
 </body>
 </html>

@@ -3,80 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Outfit:wght@100..900&family=Quicksand:wght@300..700&family=Rubik:ital@0;1&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
-    <title>Document</title>
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="./index.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&
+              family=Outfit:wght@100..900&
+              family=Quicksand:wght@300..700&
+              family=Rubik:ital@0;1&
+              family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&
+              display=swap"
+        rel="stylesheet"
+    >
+
+    <title>Autorisation d'Absence</title>
 </head>
 <body>
+
+    <!-- Main page container -->
     <div id="main_container">
+
+        <!-- Absence form -->
         <form id="form">
+
+            <!-- Header section -->
             <div id="head_container">
                 <h1>Autorisation d'Absence</h1>
+
+                <!-- Error messages -->
                 <p id="error_message"></p>
                 <br>
-                    
-                    <div id="head_input_box">
-                        <label for="name">Prenom : </label>
-                        <input type="text" id="name" name="name" required>
-                        <label for="lastname">Nom : </label>
-                        <input type="text" id="lastname" name="lastname" required>
-                        <label for="formation">Formation Suivie : </label>
-                        <input type="text" id="formation" name="formation" required>
-                    </div>
-                        
 
-                    <div id="abscent_days_block">
-                        <h2>Demande l'autorisation de s'absenter du centre : </h2>
-                        <button type="button" id="oneday_btn" class="date-button">un jour</button>
-                        <button type="button" id="manydays_btn" class="date-button">plusieurs jours</button>
-                        <div id="oneday">
-                            <label>Le<input type="date" id="oneday_abscent_date" name="oneday abscent date"></label>
-                            <label>de<input type="time" id="oneday_abscent_start_hour">h -</label>
-                            <label>à<input type="time" id="oneday_abscent_end_hour">h</label>
-                        </div>
+                <!-- Student information -->
+                <div id="head_input_box">
+                    <label for="name">Prenom :</label>
+                    <input type="text" id="name" name="name" required>
 
-                        <div id="manydays">
-                            <label>Du<input type="date" id="manydays_abscent_start_date" name="oneday abscent date"></label>
-                            <label>au<input type="date" id="manydays_abscent_end_date"></label>
-                            <p id="abscent_days_number"></p>
-                        </div>
-                    </div>    
-            </div>
-            <div id="left_right_wrapper">
-                <div id="left_container"></div> 
-                <div id="right_container">
-                    <p id="signature_error"></p>
-                    <div id="signature_block">
-                        
-                        <label for="signature_student">Date et signature du stagiere</label>
-                        <input type="text" id="signature_student" name="signature_student" >
+                    <label for="lastname">Nom :</label>
+                    <input type="text" id="lastname" name="lastname" required>
 
-                        <label for="signatur_student">Date et signature du formateur</label>
-                        <input type="text" id="signature_teacher" name="signature_teacher" readonly="">
+                    <label for="formation">Formation Suivie :</label>
+                    <input type="text" id="formation" name="formation" required>
+                </div>
+
+                <!-- Absence duration selection -->
+                <div id="abscent_days_block">
+                    <h2>Demande l'autorisation de s'absenter du centre :</h2>
+
+                    <!-- Toggle buttons -->
+                    <button type="button" id="oneday_btn" class="date-button">
+                        un jour
+                    </button>
+                    <button type="button" id="manydays_btn" class="date-button">
+                        plusieurs jours
+                    </button>
+
+                    <!-- One day absence -->
+                    <div id="oneday">
+                        <label>
+                            Le
+                            <input type="date" id="oneday_abscent_date" name="oneday abscent date">
+                        </label>
+
+                        <label>
+                            de
+                            <input type="time" id="oneday_abscent_start_hour"> h -
+                        </label>
+
+                        <label>
+                            à
+                            <input type="time" id="oneday_abscent_end_hour"> h
+                        </label>
                     </div>
-                    <div id="director_block">
-                        <div id="director_opinion_block">
-                            <label for="director_opinion">Avis du MF pour décision du Directeur</label>
-                            <input type="text" id="director_opinion" readonly="">
-                        </div>
-                        <div id="director_desicion_block">
-                            <label for="director_desicion">Décision du Directeur</label>
-                            <input type="text" id="director_desicion" name="director_desicion" readonly="">
-                        </div>
-                        
-                        
+
+                    <!-- Multiple days absence -->
+                    <div id="manydays">
+                        <label>
+                            Du
+                            <input type="date" id="manydays_abscent_start_date" name="oneday abscent date">
+                        </label>
+
+                        <label>
+                            au
+                            <input type="date" id="manydays_abscent_end_date">
+                        </label>
+
+                        <p id="abscent_days_number"></p>
                     </div>
-                    
                 </div>
             </div>
-            
-            <button type="submit" class="submit-btn">submit</button>
+
+            <!-- Left / Right layout -->
+            <div id="left_right_wrapper">
+
+                <!-- Left side (dynamic content) -->
+                <div id="left_container">
+                    <!-- Content generated dynamically from fetched data -->
+                </div>
+
+                <!-- Right side (signatures & decisions) -->
+                <div id="right_container">
+                    <p id="signature_error"></p>
+
+                    <!-- Signature block -->
+                    <div id="signature_block">
+                        <label for="signature_student">
+                            Date et signature du stagiaire
+                        </label>
+                        <input
+                            type="text"
+                            id="signature_student"
+                            name="signature_student"
+                        >
+
+                        <label for="signatur_student">
+                            Date et signature du formateur
+                        </label>
+                        <input
+                            type="text"
+                            id="signature_teacher"
+                            name="signature_teacher"
+                            readonly
+                        >
+                    </div>
+
+                    <!-- Director decision block -->
+                    <div id="director_block">
+                        <div id="director_opinion_block">
+                            <label for="director_opinion">
+                                Avis du MF pour décision du Directeur
+                            </label>
+                            <input
+                                type="text"
+                                id="director_opinion"
+                                readonly
+                            >
+                        </div>
+
+                        <div id="director_desicion_block">
+                            <label for="director_desicion">
+                                Décision du Directeur
+                            </label>
+                            <input
+                                type="text"
+                                id="director_desicion"
+                                name="director_desicion"
+                                readonly
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="submit-btn">
+                submit
+            </button>
+
         </form>
-         
     </div>
+
+    <!-- Main JS entry -->
     <script type="module" src="./js/app.js"></script>
+
 </body>
 </html>
